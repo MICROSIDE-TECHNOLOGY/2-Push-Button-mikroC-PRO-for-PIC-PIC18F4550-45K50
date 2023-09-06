@@ -1,0 +1,31 @@
+on: [push]
+
+jobs:
+  gist-sync:
+    name: gist-sync
+    runs-on: ubuntu-latest
+    steps:
+    #PIC18F4550
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: vhperaltaj/gist-sync-action@v1.0.0
+        id: PIC18F4550
+        with:
+          auth: ${{ secrets.GIST_TOKEN }}
+          gist_url: https://gist.github.com/microside-mx/f5d71903d0c8da9878b3b2bd24fc8070
+          gist_title: Práctica-2-Push Button 4550-MikroC.c
+          gist_description: $gistDescription
+          github_file: Proyecto/4550/push_button.c
+          file_encoding: WINDOWS-1252
+    #PIC18F45K50
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: vhperaltaj/gist-sync-action@v1.0.0
+        id: PIC18F45K50
+        with:
+          auth: ${{ secrets.GIST_TOKEN }}
+          gist_url: https://gist.github.com/microside-mx/825f7c526e090fa3d24f4988c0b90770
+          gist_title: Práctica-2 Push Button 45K50-MikroC.c
+          gist_description: $gistDescription
+          github_file: Proyecto/45K50/push_button.c
+          file_encoding: WINDOWS-1252
